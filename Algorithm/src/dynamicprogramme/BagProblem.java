@@ -15,8 +15,8 @@ package dynamicprogramme;
 public class BagProblem {
 
     /**
-     * 我们定义一个表格，横坐标为背包的重量，由于有4磅，一共是5列
-     * 纵坐标为商品，一共三个商品，一共是4行
+     * 我们定义一个表格，横坐标为背包的重量，背包重量 + 1列
+     * 纵坐标为商品，一共是商品个数 + 1 行
      *
      * @param weight 商品的重量
      * @param value  商品的价值
@@ -97,7 +97,7 @@ public class BagProblem {
     public static void main(String[] args) {
         int[] weight = new int[]{1, 4, 3};
         int[] value = new int[]{1500, 3000, 2000};
-        int vol =6;
+        int vol = 4;
 
         int[][] table = getValTable(weight, value, vol);
         printTable(table);
