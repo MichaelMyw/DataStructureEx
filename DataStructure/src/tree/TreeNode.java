@@ -13,12 +13,45 @@ public class TreeNode {
         this.value = value;
     }
 
+
     @Override
     public String toString() {
         return "TreeNode{" +
-                "left=" + left +
-                ", right=" + right +
-                ", value=" + value +
+                "value=" + value +
                 '}';
+    }
+
+    public void add(TreeNode node){
+        if(node == null){
+            return;
+        }
+        if(node.value < this.value){
+            if(this.left == null){
+                this.left = node;
+            }else{
+                this.left.add(node);
+            }
+        }
+        if(node.value > this.value){
+            if(this.right == null){
+                this.right = node;
+            }else{
+                this.right.add(node);
+            }
+        }
+    }
+
+    /**
+     * 中序遍历
+     */
+    public void inOrderTraverse() {
+
+        if (this.left != null) {
+            this.left.inOrderTraverse();
+        }
+        System.out.print(this.value +" ");
+        if (this.right != null) {
+            this.right.inOrderTraverse();
+        }
     }
 }
